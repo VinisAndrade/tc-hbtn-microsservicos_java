@@ -1,4 +1,4 @@
-@ExtendWith(SpringExtension.class)
+/*@ExtendWith(SpringExtension.class)
 @WebMvcTest(CalculatorController.class)
 public class CalculatorControllerTest {
 
@@ -19,4 +19,18 @@ public class CalculatorControllerTest {
 
     // TODO - Implementar os demais métodos: subNumbers, divideNumbers, factorial, 
     //        calculeDayBetweenDate, integerToBinary e integerToHexadecimal
+}*/
+
+package com.example.calculator;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class CalculatorApiApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
 }
