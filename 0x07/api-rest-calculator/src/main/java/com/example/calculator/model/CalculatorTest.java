@@ -1,34 +1,59 @@
 package com.example.calculator.model;
-import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CalculatorTest {
+
+    private final Calculator calculator = new Calculator();
+
     @Test
-    public void testAddNumbers() {
-        assertEquals(5, Calculator.add(2, 3));
+    void sumTest() {
+        assertEquals(15.0, calculator.sum(10.0, 5.0));
     }
+
     @Test
-    public void testSubNumbers() {
-        assertEquals(1, Calculator.subtract(3, 2));
+    void numbersNullSumTest() {
+        assertThrows(NullPointerException.class, () -> calculator.sum(null, 5.0));
     }
+
     @Test
-    public void testDivideNumbers() {
-        assertEquals(2.0, Calculator.divide(6, 3));
+    void subTest() {
+        assertEquals(5.0, calculator.sub(10.0, 5.0));
     }
+
     @Test
-    public void testFactorial() {
-        assertEquals(120, Calculator.factorial(5));
+    void divideTest() {
+        assertEquals(5.0, calculator.divide(10.0, 2.0));
     }
+
     @Test
-    public void testCalculeDayBetweenDate() {
-        assertEquals(5, Calculator.calculeDayBetweenDate("2024-02-01", "2024-02-06"));
+    void divisionByZeroTest() {
+        assertThrows(ArithmeticException.class, () -> calculator.divide(10.0, 0.0));
     }
+
     @Test
-    public void testIntegerToBinary() {
-        assertEquals("1010", Calculator.integerToBinary(10));
+    void factorialTest() {
+        assertEquals(120, calculator.factorial(5));
     }
+
     @Test
-    public void testIntegerToHexadecimal() {
-        assertEquals("a", Calculator.integerToHexadecimal(10));
+    void integerToBinaryTest() {
+        assertEquals(10100, calculator.integerToBinary(20));
+    }
+
+    @Test
+    void integerToHexadecimalTest() {
+        assertEquals("14", calculator.integerToHexadecimal(20));
+    }
+
+    @Test
+    void calculeDayBetweenDateTest() {
+        LocalDate date1 = LocalDate.of(2020, 3, 15);
+        LocalDate date2 = LocalDate.of(2020, 3, 29);
+        assertEquals(14, calculator.calculeDayBetweenDate(date1, date2));
     }
 }
